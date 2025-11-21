@@ -9,3 +9,7 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route('/log/food')
+def food_log():
+    return "Simple Food Log Feature (Ready)"
