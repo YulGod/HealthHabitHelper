@@ -21,8 +21,8 @@ release = 'v0.0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx.ext.autodoc',    # API 문서 자동 생성 기능
-    'sphinx.ext.napoleon',   # Google/NumPy 스타일 Docstrings 지원
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']
