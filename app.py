@@ -1,20 +1,10 @@
+# app.py (임시 테스트용 최소 코드)
 from flask import Flask
-import sqlite3
 
+# Flask 인스턴스만 생성합니다. 이 코드는 최소한의 임포트만 실행합니다.
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Welcome to HealthHabitHelper (HHH) - Minimalist Health Tracker"
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-@app.route('/log/food')
-def food_log():
-    return "Simple Food Log Feature (Ready)"
-# --- Feature: Mood Log (Contributed by Lee Jee Hak) ---
-@app.route('/log/mood', methods=['GET', 'POST'])
-def mood_log():
-    # Deliverable 1: "Provides three simple button options (Good, Normal, Bad)"
-    return "Select Today's Mood: [Good] [Normal] [Bad]"
+# 테스트용 더미 함수 (API 문서에 필요할 경우)
+def health_status():
+    """Returns the current application health status."""
+    return "OK"
