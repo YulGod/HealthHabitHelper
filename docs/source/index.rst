@@ -19,7 +19,7 @@ documentation for details.
    getting_started
    usage
    technical
-   api
+   .. api
    configuration
    maintenance
    contribution
