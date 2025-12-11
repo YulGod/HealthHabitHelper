@@ -35,3 +35,17 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+# --- Mocking external dependencies for ReadTheDocs ---
+# ReadTheDocs가 실제 Flask를 빌드 환경에서 찾지 못할 때 오류를 피하기 위함입니다.
+import sys
+from unittest.mock import MagicMock
+
+class Mock(MagicMock):
+    @classmethod
+    def __getattr__(cls, name):
+        return MagicMock()
+
+MOCK_MODULES = ['flask'] # 여기에 Flask를 추가합니다.
+
+sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
