@@ -1,7 +1,7 @@
 # -- Path setup --------------------------------------------------------------
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../..'))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -29,23 +29,14 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
-# --- Mocking external dependencies for ReadTheDocs ---
-# ReadTheDocs가 실제 Flask를 빌드 환경에서 찾지 못할 때 오류를 피하기 위함입니다.
-import sys
-from unittest.mock import MagicMock
 
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-        return MagicMock()
-
-MOCK_MODULES = ['flask'] # 여기에 Flask를 추가합니다.
-
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+# -----------------------------------------------------
+# 공식 Sphinx Mocking 설정 (Flask 관련 모듈을 모두 Mock 처리)
+# -----------------------------------------------------
+autodoc_mock_imports = ["flask", "Flask"]
